@@ -12,9 +12,7 @@ RUN apt-get update \
   && apt-get install -y \
     git mercurial xvfb \
     locales sudo openssh-client ca-certificates tar gzip parallel \
-    net-tools netcat unzip zip bzip2 ruby ruby-dev
-
-RUN gem install bundler --no-rdoc --no-ri
+    net-tools netcat unzip zip bzip2
 
 # Set timezone to UTC by default
 RUN ln -sf /usr/share/zoneinfo/Etc/UTC /etc/localtime
@@ -72,6 +70,9 @@ RUN groupadd --gid 3434 circleci \
   && echo 'Defaults    env_keep += "DEBIAN_FRONTEND"' >> /etc/sudoers.d/env_keep
 
 # BEGIN IMAGE CUSTOMIZATIONS
+
+RUN apt-get install -y ruby ruby-dev \
+  && gem install bundler --no-rdoc --no-ri
 
 # END IMAGE CUSTOMIZATIONS
 
