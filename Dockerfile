@@ -12,7 +12,9 @@ RUN apt-get update \
   && apt-get install -y \
     git mercurial xvfb \
     locales sudo openssh-client ca-certificates tar gzip parallel \
-    net-tools netcat unzip zip bzip2
+    net-tools netcat unzip zip bzip2 \
+    # These are needed to be able to run tests with cypress.io
+    libgtk2.0-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2
 
 # Set timezone to UTC by default
 RUN ln -sf /usr/share/zoneinfo/Etc/UTC /etc/localtime
