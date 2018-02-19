@@ -75,9 +75,6 @@ RUN groupadd --gid 3434 circleci \
 
 # BEGIN IMAGE CUSTOMIZATIONS
 
-RUN apt-get install -y ruby ruby-dev \
-  && gem install bundler --no-rdoc --no-ri
-
 # END IMAGE CUSTOMIZATIONS
 
 USER circleci
