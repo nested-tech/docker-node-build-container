@@ -1,6 +1,8 @@
 # This is totally hacked from the circleci container builds...
 
-FROM node:6.11
+# Node 8 started LTS on 2017-10-31
+# Node 10 will start LTS on 2018-10
+FROM node:8
 
 # make Apt non-interactive
 RUN echo 'APT::Get::Assume-Yes "true";' > /etc/apt/apt.conf.d/90circleci \
